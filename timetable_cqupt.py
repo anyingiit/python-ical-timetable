@@ -1,8 +1,8 @@
 from hashlib import md5
 from datetime import datetime, timedelta
 
-classTime = [None, (8, 0), (8, 55), (10, 15), (11, 10), (14, 00), (14, 55), 
-	(16, 15), (17, 10), (19, 0), (19, 55), (20, 50), (21, 45)]
+classTime = [None, (8, 15), (9, 10), (10, 15), (11, 10), (13, 15), (14, 10),
+	(15, 5), (16, 0)]
 weeks = [None]
 starterDay = datetime(2021, 9, 6)
 for i in range(1, 30):
@@ -17,14 +17,15 @@ rgWeek = lambda startWeek, endWeek: [i for i in range(startWeek, endWeek + 1)]
 uid_generate = lambda key1, key2: md5(f"{key1}{key2}".encode("utf-8")).hexdigest()
 
 classes = [
-	["信号与系统", "张三", "5203", "A15202A2011290001", rgWeek(1, 12), 1, [3, 4]],
-	# 信号与系统，张三老师，5203 教室，1 - 12 周，周一，3、4 节上课
-	["面向对象程序设计", "李四", "计算机教室（六）(综合实验楼B405/B406)", "SK15202A2040370003", oeWeek(3, 17, 1), 3, [3, 4]],
-	# 面向对象程序设计，李四老师，综合实验楼，3 - 17 周单周，周三，3、4 节上课
-	["大学体育", "王五", "风华运动场", "T00202A1090030012", oeWeek(2, 16, 0), 3, [3, 4]],
-	# 大学体育，王五老师，风华运动场，2 - 16 周双周，周三，3、4 节上课
-	["马克思主义基本原理概论", "赵六", "3105", "A15202A1100031016", rgWeek(1, 8) + rgWeek(10, 16), 3, [5, 6, 7]],
-	# 马克思主义基本原理概论，赵六老师，1 - 8 周及 10 - 16 周，周三，5、6、7 节上课
+	["WEB前端技术", "张燕宁", "电信320第十机房", "abc", oeWeek(2, 6, 0) + rgWeek(7, 10) + rgWeek(12, 14) + [17] , 1, rgWeek(1, 4)],
+	["软件工程与UML", "张景峰", "电信318第八机房", "abc", rgWeek(1, 2) + oeWeek(4, 6, 0) + rgWeek(12, 14) + rgWeek(17, 18), 2, rgWeek(1, 4)],
+	["面向对象程序设计", "朱孔涛", "电信307第五机房", "abc", rgWeek(1, 4) + rgWeek(6, 10) + rgWeek(12, 14) + rgWeek(17, 18), 3, rgWeek(1, 4)],
+	["形势与政策2", "李晓", "电信110阶梯教室", "abc", rgWeek(7, 8), 3, rgWeek(7, 8)],
+	["数据库设计", "常荧", "电信313移动APP应用开发实训室", "abc", rgWeek(1, 4) + rgWeek(6, 10) + rgWeek(12, 14) + rgWeek(17, 18), 4, rgWeek(1, 4)],
+	["UI界面设计", "苏晨", "电信310RFID技术应用实训室", "abc", rgWeek(1, 3) + rgWeek(5, 10) + rgWeek(12, 14) + rgWeek(17, 18), 5, rgWeek(1, 2)],
+	["WEB前端技术", "张燕宁", "电信320第十机房", "abc", [2], 6, rgWeek(1, 4)],
+	["WEB前端技术", "常荧", "电信313移动APP应用开发实训室", "abc", [5], 6, rgWeek(1,4)],
+	["软件工程与UML", "张景峰", "电信318第八机房", "abc", [3], 7, rgWeek(1, 4)],
 ]
 
 iCal = """BEGIN:VCALENDAR
