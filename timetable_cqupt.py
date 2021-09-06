@@ -2,7 +2,7 @@ from hashlib import md5
 from datetime import datetime, timedelta
 
 classTime = [None, (8, 15), (9, 10), (10, 15), (11, 10), (13, 15), (14, 10),
-	(15, 5), (16, 0)] #TODO: 添加第9, 第10节课的具体上课时间.
+	(15, 5), (16, 0), (18, 5), (19, 0)] #TODO: 目前第9和第10节课上课时间为猜想, 需要验证
 weeks = [None]
 starterDay = datetime(2021, 9, 6)
 for i in range(1, 30):
@@ -51,6 +51,10 @@ def get_location(loc):
 		customGEO = """LOCATION:电信工程学院\\n
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-TITLE=电信工程学院
  \\\\n:geo:39.771097,116.512190"""
+	elif "体育馆" in loc:
+		customGEO = """LOCATION:国奥金冠运动中心\\n亦庄开发区凉水河一街9号
+X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-TITLE=国奥金冠运动中心
+ \\\\n:geo:39.770704,116.513728"""
 	else: #Fallback
 		customGEO = """LOCATION:电信工程学院\\n
 X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-TITLE=电信工程学院
